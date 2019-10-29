@@ -1,7 +1,7 @@
 var express = require("express");
 
 var router = express.Router();
-var burger = require("../models/burger");
+var burger = require("../models/burger.js");
 
 // get route -> index
 router.get("/", function(req, res) {
@@ -32,5 +32,13 @@ router.put("/burgers/update/:id", function(req, res) {
     res.json("/");
   });
 });
+
+// delete route -> back to index
+router.delete("/burgers/delete/:id", function(req, res) {
+  var condition = "id = " + req.params.id;
+  burger.delete(condition, function(result) {
+    res.json("/");
+  });
+})
 
 module.exports = router;
