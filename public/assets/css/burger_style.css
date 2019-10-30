@@ -1,0 +1,29 @@
+body {
+    background: #fabc00;
+}
+h1 {
+    font-family: 'Oleo Script Swash Caps', cursive;
+    color: rgb(228, 65, 65);
+    font-size: 6rem;
+    font-weight: 900;
+}
+
+h3 {
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.753);
+    border-radius: 15px;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+.burger {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 10px;
+    transform: translateY(8px);
+}

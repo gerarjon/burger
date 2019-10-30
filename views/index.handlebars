@@ -1,52 +1,69 @@
-<nav>
-    <div class="nav-wrapper">
-        <a href="/burgers" class="brand-logo center">Quang's Burgers</a>
-    </div>
-</nav>
+<div class="container">
+	<h1 class="header center">Quang's Burgers</h1>
+</div>
+
 
 <div class="container">
 	<div class="row">
-        <br>
-        <br>
-		<div class="col s6 center" class="task">
-			<div class="row">
-			  {{#each burgers}}
-			  	{{#unless this.devoured}}
-				<div class="col s9 left-align">
-                    <h4>
-                        {{this.id}}. {{this.burger_name}}
-                    </h4>
+		<div class="col s8 offset-s2">
+			<h3 class="center-align">Add a Burger</h3>
+			<form class="add-form">
+			<div class="form-group">
+				<label for="name_inout">Burger Name:</label>
+				<input type="text" id="name_input" name="burger_name">
+				<div class="center">
+					<button class="btn-large waves-effect waves-light" type="submit">Submit</button>
 				</div>
-				<div class="col s3 center">
-					<form class="devour-form" class="button-size">
-						<input input type="hidden" class="burger_id" type="text" value="{{this.id}}">
-						<br>
-						<button type="submit" class="btn btn-default">Devour it!</button>
-					</form>
-				</div>
-				{{/unless}}
-			  {{/each}}
 			</div>
-		</div>
-		<div class="col s6 center" class="task">
-			  {{#each burgers}}
-			  	{{#if this.devoured}}
-			  		<input class="form-control" type="text" placeholder="{{this.id}}.{{this.burger_name}}">
-				{{/if}}
-			  {{/each}}
+			</form>
 		</div>
 	</div>
 </div>
 
 <div class="container">
 	<div class="row">
-		<div class="col s12 center">
-			<form action="/burgers/create" method="POST">
-				<input type="text" class="form-control" name="burger_name" value="" id="enter_text">
-				<button type="submit" class="btn btn-primary" id="text-enter-button">Submit</button>
-			</form>
-			<p>Enter a burger you want to eat.</p> 
-            <p>Click the "Submit" button.</p>
+		<div class ="col s6">
+			<h3 class="center-align">Burger Menu</h3>
+			<ul>
+				{{#each burgers}}
+					{{#unless this.devoured }}
+						{{!-- {{> burgers/burger-block }} --}}
+						<li>
+							<div>
+								<img class="burger" src="../assets/img/burger.png" alt="mini_burger">
+								{{burger_name}}
+								<div class="right">
+									<button class="btn waves-effect waves-light devour green" data-id="{{id}}" data-devourState="{{devoured}}">
+									{{#unless devoured}}DEVOUR IT!{{/unless}}
+									</button>
+								</div>
+							</div>
+						</li>
+					{{/unless}}
+				{{/each}}
+			</ul>
+		</div>
+
+		<div class ="col s6">
+			<h3 class="center-align">Eaten Burgers</h3>
+			<ul>
+			{{#each burgers}}
+				{{#if this.devoured }}
+					<li>
+						<div>
+							<img class="burger" src="../assets/img/burger_bite.png" alt="devoured_burger">
+							{{burger_name}}
+							<div class="right">
+								<button class="btn waves-effect waves-light undevour red" data-id="{{id}}" data-devourState="{{devoured}}">
+								{{#if devoured}}<i class="material-icons">delete</i>{{/if}}
+								</button>
+							</div>
+						</div>
+					</li>
+				{{/if}}
+			{{/each}}
+			</ul>
 		</div>
 	</div>
 </div>
+
