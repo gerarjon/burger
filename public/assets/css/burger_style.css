@@ -1,6 +1,15 @@
 body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
     background: #fabc00;
 }
+
+main {
+    flex: 1 0 auto;
+}
+
+
 h1 {
     font-family: 'Oleo Script Swash Caps', cursive;
     color: rgb(228, 65, 65);
@@ -13,6 +22,8 @@ h3 {
 }
 
 .container {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
     background-color: rgba(255, 255, 255, 0.753);
     border-radius: 15px;
 }
