@@ -9,7 +9,6 @@ main {
     flex: 1 0 auto;
 }
 
-
 h1 {
     font-family: 'Oleo Script Swash Caps', cursive;
     color: rgb(228, 65, 65);
@@ -19,6 +18,14 @@ h1 {
 
 h3 {
     font-family: 'Roboto', sans-serif;
+}
+
+.head {
+    background-image: url("../img/quang-chef.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 1.5rem;
+    padding-left: 4rem;
 }
 
 .container {
